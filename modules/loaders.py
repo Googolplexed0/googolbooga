@@ -350,7 +350,7 @@ def blacklist_samplers(loader, dynamic_temperature):
     output = []
 
     for sampler in all_samplers:
-        if loader == 'All' or sampler in loaders_samplers[loader]:
+        if loader in {'All', None} or sampler in loaders_samplers[loader]:
             if sampler.startswith('dynatemp'):
                 output.append(gr.update(visible=dynamic_temperature))
             else:
